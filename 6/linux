@@ -1,0 +1,18 @@
+Создаем каталог:
+mkdir ./Recovery
+
+Создаем группу:
+sudo groupadd recovery_group
+
+Создаем пользователя:
+sudo useradd recovery_user
+sudo passwd recovery_user
+
+Добавляем пользователя в группу с правами на каталог:
+sudo usermod -a -G recovery_group recovery_user
+
+Настроим владельца и группу каталога
+sudo chown -R recovery_user:recovery_group ./Recovery
+
+Отключаем доступ для остальных пользователей:
+sudo chmod 750 ./Recovery
